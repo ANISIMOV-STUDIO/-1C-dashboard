@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<n>ИсточникДанных1</n>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<n>НаборДанныхПрибыльность</n>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГруппаНоменклатуры</dataPath>
+			<field>ГруппаНоменклатуры</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа номенклатуры</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Выручка</dataPath>
+			<field>Выручка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выручка</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Себестоимость</dataPath>
+			<field>Себестоимость</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Себестоимость</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВаловаяПрибыль</dataPath>
+			<field>ВаловаяПрибыль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валовая прибыль</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОперационныеРасходы</dataPath>
+			<field>ОперационныеРасходы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Операционные расходы</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОперационнаяПрибыль</dataPath>
+			<field>ОперационнаяПрибыль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Операционная прибыль (EBIT)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФинансовыеРасходы</dataPath>
+			<field>ФинансовыеРасходы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Финансовые расходы</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НалогНаПрибыль</dataPath>
+			<field>НалогНаПрибыль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Налог на прибыль</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЧистаяПрибыль</dataPath>
+			<field>ЧистаяПрибыль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чистая прибыль</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2; ЧРГ=' '</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РентабельностьПродаж</dataPath>
+			<field>РентабельностьПродаж</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Рентабельность продаж (%)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РентабельностьОперационная</dataPath>
+			<field>РентабельностьОперационная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Операционная рентабельность (%)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РентабельностьЧистая</dataPath>
+			<field>РентабельностьЧистая</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Чистая рентабельность (%)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ЧДЦ=2</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВыручкаИСебестоимостьПродаж.Период КАК Период,
+	ВыручкаИСебестоимостьПродаж.Организация КАК Организация,
+	ВыручкаИСебестоимостьПродаж.Номенклатура.НоменклатурнаяГруппа КАК ГруппаНоменклатуры,
+	ВыручкаИСебестоимостьПродаж.Номенклатура КАК Номенклатура,
+	ВыручкаИСебестоимостьПродаж.Выручка КАК Выручка,
+	ВыручкаИСебестоимостьПродаж.Себестоимость КАК Себестоимость,
+	ВыручкаИСебестоимостьПродаж.ВаловаяПрибыль КАК ВаловаяПрибыль,
+	0 КАК ОперационныеРасходы,
+	0 КАК ФинансовыеРасходы,
+	0 КАК НалогНаПрибыль
+ПОМЕСТИТЬ ВТ_ВыручкаИПрибыль
+ИЗ
+	РегистрНакопления.ВыручкаИСебестоимостьПродаж КАК ВыручкаИСебестоимостьПродаж
+ГДЕ
+	ВыручкаИСебестоимостьПродаж.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И ВыручкаИСебестоимостьПродаж.Активность
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ПрочиеРасходы.Период КАК Период,
+	ПрочиеРасходы.Организация КАК Организация,
+	СУММА(ВЫБОР
+		КОГДА ПрочиеРасходы.СтатьяЗатрат.ВидРасходов В (
+				ЗНАЧЕНИЕ(Перечисление.ВидыРасходов.АдминистративныеРасходы),
+				ЗНАЧЕНИЕ(Перечисление.ВидыРасходов.КоммерческиеРасходы),
+				ЗНАЧЕНИЕ(Перечисление.ВидыРасходов.УправленческиеРасходы)
+			)
+			ТОГДА ПрочиеРасходы.СуммаРасхода
+		ИНАЧЕ 0
+	КОНЕЦ) КАК ОперационныеРасходы,
+	СУММА(ВЫБОР
+		КОГДА ПрочиеРасходы.СтатьяЗатрат.ВидРасходов = ЗНАЧЕНИЕ(Перечисление.ВидыРасходов.ПроцентыКУплате)
+			ТОГДА ПрочиеРасходы.СуммаРасхода
+		ИНАЧЕ 0
+	КОНЕЦ) КАК ФинансовыеРасходы
+ПОМЕСТИТЬ ВТ_ПрочиеРасходы
+ИЗ
+	РегистрНакопления.ПрочиеРасходы КАК ПрочиеРасходы
+ГДЕ
+	ПрочиеРасходы.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+	И ПрочиеРасходы.Активность
+
+СГРУППИРОВАТЬ ПО
+	ПрочиеРасходы.Период,
+	ПрочиеРасходы.Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	НалогНаПрибыль.Период КАК Период,
+	НалогНаПрибыль.Организация КАК Организация,
+	СУММА(НалогНаПрибыль.СуммаНалога) КАК НалогНаПрибыль
+ПОМЕСТИТЬ ВТ_НалогНаПрибыль
+ИЗ
+	РегистрНакопления.НалогНаПрибыль КАК НалогНаПрибыль
+ГДЕ
+	НалогНаПрибыль.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+
+СГРУППИРОВАТЬ ПО
+	НалогНаПрибыль.Период,
+	НалогНаПрибыль.Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВыручкаИПрибыль.Период КАК Период,
+	ВыручкаИПрибыль.Организация КАК Организация,
+	ВыручкаИПрибыль.ГруппаНоменклатуры КАК ГруппаНоменклатуры,
+	ВыручкаИПрибыль.Номенклатура КАК Номенклатура,
+	СУММА(ВыручкаИПрибыль.Выручка) КАК Выручка,
+	СУММА(ВыручкаИПрибыль.Себестоимость) КАК Себестоимость,
+	СУММА(ВыручкаИПрибыль.ВаловаяПрибыль) КАК ВаловаяПрибыль,
+	СУММА(ЕСТЬNULL(ПрочиеРасходы.ОперационныеРасходы, 0)) КАК ОперационныеРасходы,
+	СУММА(ВыручкаИПрибыль.ВаловаяПрибыль) - СУММА(ЕСТЬNULL(ПрочиеРасходы.ОперационныеРасходы, 0)) КАК ОперационнаяПрибыль,
+	СУММА(ЕСТЬNULL(ПрочиеРасходы.ФинансовыеРасходы, 0)) КАК ФинансовыеРасходы,
+	СУММА(ЕСТЬNULL(НалогНаПрибыль.НалогНаПрибыль, 0)) КАК НалогНаПрибыль,
+	СУММА(ВыручкаИПрибыль.ВаловаяПрибыль) 
+		- СУММА(ЕСТЬNULL(ПрочиеРасходы.ОперационныеРасходы, 0))
+		- СУММА(ЕСТЬNULL(ПрочиеРасходы.ФинансовыеРасходы, 0))
+		- СУММА(ЕСТЬNULL(НалогНаПрибыль.НалогНаПрибыль, 0)) КАК ЧистаяПрибыль,
+	ВЫБОР
+		КОГДА СУММА(ВыручкаИПрибыль.Выручка) = 0
+			ТОГДА 0
+		ИНАЧЕ СУММА(ВыручкаИПрибыль.ВаловаяПрибыль) / СУММА(ВыручкаИПрибыль.Выручка) * 100
+	КОНЕЦ КАК РентабельностьПродаж,
+	ВЫБОР
+		КОГДА СУММА(ВыручкаИПрибыль.Выручка) = 0
+			ТОГДА 0
+		ИНАЧЕ (СУММА(ВыручкаИПрибыль.ВаловаяПрибыль) - СУММА(ЕСТЬNULL(ПрочиеРасходы.ОперационныеРасходы, 0))) / СУММА(ВыручкаИПрибыль.Выручка) * 100
+	КОНЕЦ КАК РентабельностьОперационная,
+	ВЫБОР
+		КОГДА СУММА(ВыручкаИПрибыль.Выручка) = 0
+			ТОГДА 0
+		ИНАЧЕ (СУММА(ВыручкаИПрибыль.ВаловаяПрибыль) 
+			- СУММА(ЕСТЬNULL(ПрочиеРасходы.ОперационныеРасходы, 0))
+			- СУММА(ЕСТЬNULL(ПрочиеРасходы.ФинансовыеРасходы, 0))
+			- СУММА(ЕСТЬNULL(НалогНаПрибыль.НалогНаПрибыль, 0))) / СУММА(ВыручкаИПрибыль.Выручка) * 100
+	КОНЕЦ КАК РентабельностьЧистая
+ИЗ
+	ВТ_ВыручкаИПрибыль КАК ВыручкаИПрибыль
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПрочиеРасходы КАК ПрочиеРасходы
+		ПО ВыручкаИПрибыль.Период = ПрочиеРасходы.Период
+			И ВыручкаИПрибыль.Организация = ПрочиеРасходы.Организация
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_НалогНаПрибыль КАК НалогНаПрибыль
+		ПО ВыручкаИПрибыль.Период = НалогНаПрибыль.Период
+			И ВыручкаИПрибыль.Организация = НалогНаПрибыль.Организация
+
+СГРУППИРОВАТЬ ПО
+	ВыручкаИПрибыль.Период,
+	ВыручкаИПрибыль.Организация,
+	ВыручкаИПрибыль.ГруппаНоменклатуры,
+	ВыручкаИПрибыль.Номенклатура</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Выручка</dataPath>
+		<expression>Сумма(Выручка)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Себестоимость</dataPath>
+		<expression>Сумма(Себестоимость)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВаловаяПрибыль</dataPath>
+		<expression>Сумма(ВаловаяПрибыль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОперационныеРасходы</dataPath>
+		<expression>Сумма(ОперационныеРасходы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОперационнаяПрибыль</dataPath>
+		<expression>Сумма(ОперационнаяПрибыль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФинансовыеРасходы</dataPath>
+		<expression>Сумма(ФинансовыеРасходы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НалогНаПрибыль</dataPath>
+		<expression>Сумма(НалогНаПрибыль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЧистаяПрибыль</dataPath>
+		<expression>Сумма(ЧистаяПрибыль)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РентабельностьПродаж</dataPath>
+		<expression>ВЫБОР КОГДА Сумма(Выручка) = 0 ТОГДА 0 ИНАЧЕ Сумма(ВаловаяПрибыль) / Сумма(Выручка) * 100 КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РентабельностьОперационная</dataPath>
+		<expression>ВЫБОР КОГДА Сумма(Выручка) = 0 ТОГДА 0 ИНАЧЕ Сумма(ОперационнаяПрибыль) / Сумма(Выручка) * 100 КОНЕЦ</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РентабельностьЧистая</dataPath>
+		<expression>ВЫБОР КОГДА Сумма(Выручка) = 0 ТОГДА 0 ИНАЧЕ Сумма(ЧистаяПрибыль) / Сумма(Выручка) * 100 КОНЕЦ</expression>
+	</totalField>
+	<parameter>
+		<n>НачалоПериода</n>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<n>КонецПериода</n>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ДиаграммаВодопад</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Структура прибыли (Waterfall)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Выручка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Себестоимость</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВаловаяПрибыль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОперационныеРасходы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОперационнаяПрибыль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФинансовыеРасходы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НалогНаПрибыль</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЧистаяПрибыль</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>c5a7c4b5-4567-4321-abcd-1234567890ab</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>d5a7c4b5-4567-4321-abcd-1234567890ab</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:ChartType">Waterfall</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Структура прибыли (от выручки до чистой прибыли)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemChart">
+				<dcsset:point>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Система.ПустаяСсылка</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:point>
+				<dcsset:series>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Система.ПустаяСсылка</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:series>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>
