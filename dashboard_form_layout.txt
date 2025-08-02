@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Form xmlns="http://v8.1c.ru/8.3/xcf/logform" xmlns:app="http://v8.1c.ru/8.2/managed-application/core" xmlns:cfg="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:ent="http://v8.1c.ru/8.1/data/enterprise" xmlns:lf="http://v8.1c.ru/8.2/managed-application/logform" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xr="http://v8.1c.ru/8.3/xcf/readable" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.11">
+	<AutoCommandBar name="ФормаКоманднаяПанель" id="-1"/>
+	<Attributes>
+		<!-- Реквизиты для фильтров -->
+		<Attribute name="НачалоПериода" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало периода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="КонецПериода" id="2">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конец периода</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>Date</v8:DateFractions>
+				</v8:DateQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="Организация" id="3">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Организации</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Контрагент" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Контрагенты</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Менеджер" id="5">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Пользователи</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Номенклатура" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Номенклатура</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ГруппаНоменклатуры" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Группа номенклатуры</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.НоменклатурныеГруппы</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="Склад" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>cfg:CatalogRef.Склады</v8:Type>
+			</Type>
+		</Attribute>
+		
+		<!-- Реквизиты для отображения результатов -->
+		<Attribute name="РезультатПродажи" id="100">
+			<Type>
+				<v8:Type>v8:DataCompositionResultItem</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РезультатПрибыльность" id="101">
+			<Type>
+				<v8:Type>v8:DataCompositionResultItem</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РезультатВзаиморасчеты" id="102">
+			<Type>
+				<v8:Type>v8:DataCompositionResultItem</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="РезультатЗапасы" id="103">
+			<Type>
+				<v8:Type>v8:DataCompositionResultItem</v8:Type>
+			</Type>
+		</Attribute>
+	</Attributes>
+	
+	<Events>
+		<Event name="OnCreateAtServer">ПриСозданииНаСервере</Event>
+		<Event name="OnOpen">ПриОткрытии</Event>
+	</Events>
+	
+	<ChildItems>
+		<!-- Группа фильтров -->
+		<UsualGroup name="ГруппаФильтры" id="20">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Параметры отбора</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Настройки фильтров для анализа данных</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Group>Horizontal</Group>
+			<Representation>WeakSeparation</Representation>
+			<ShowTitle>true</ShowTitle>
+			<ExtendedTooltip name="ГруппаФильтрыРасширеннаяПодсказка" id="21"/>
+			<ChildItems>
+				<!-- Период -->
+				<InputField name="НачалоПериода" id="22">
+					<DataPath>НачалоПериода</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>Enter</EditMode>
+					<Events>
+						<Event name="OnChange">НачалоПериодаПриИзменении</Event>
+					</Events>
+					<ContextMenu name="НачалоПериодаКонтекстноеМеню" id="23"/>
+					<ExtendedTooltip name="НачалоПериодаРасширеннаяПодсказка" id="24"/>
+				</InputField>
+				<InputField name="КонецПериода" id="25">
+					<DataPath>КонецПериода</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>Enter</EditMode>
+					<Events>
+						<Event name="OnChange">КонецПериодаПриИзменении</Event>
+					</Events>
+					<ContextMenu name="КонецПериодаКонтекстноеМеню" id="26"/>
+					<ExtendedTooltip name="КонецПериодаРасширеннаяПодсказка" id="27"/>
+				</InputField>
+				
+				<!-- Организация -->
+				<InputField name="Организация" id="28">
+					<DataPath>Организация</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>Enter</EditMode>
+					<Events>
+						<Event name="OnChange">ОрганизацияПриИзменении</Event>
+					</Events>
+					<ContextMenu name="ОрганизацияКонтекстноеМеню" id="29"/>
+					<ExtendedTooltip name="ОрганизацияРасширеннаяПодсказка" id="30"/>
+				</InputField>
+				
+				<!-- Контрагент -->
+				<InputField name="Контрагент" id="31">
+					<DataPath>Контрагент</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>Enter</EditMode>
+					<Events>
+						<Event name="OnChange">КонтрагентПриИзменении</Event>
+					</Events>
+					<ContextMenu name="КонтрагентКонтекстноеМеню" id="32"/>
+					<ExtendedTooltip name="КонтрагентРасширеннаяПодсказка" id="33"/>
+				</InputField>
+				
+				<!-- Менеджер -->
+				<InputField name="Менеджер" id="34">
+					<DataPath>Менеджер</DataPath>
+					<TitleLocation>Top</TitleLocation>
+					<EditMode>Enter</EditMode>
+					<Events>
+						<Event name="OnChange">МенеджерПриИзменении</Event>
+					</Events>
+					<ContextMenu name="МенеджерКонтекстноеМеню" id="35"/>
+					<ExtendedTooltip name="МенеджерРасширеннаяПодсказка" id="36"/>
+				</InputField>
+				
+				<!-- Кнопка обновить -->
+				<Button name="КнопкаОбновить" id="37">
+					<Type>UsualButton</Type>
+					<CommandName>Form.Command.Обновить</CommandName>
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обновить</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обновить данные дашборда</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>StdPicture.Refresh</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<Representation>PictureAndText</Representation>
+					<ExtendedTooltip name="КнопкаОбновитьРасширеннаяПодсказка" id="38"/>
+				</Button>
+			</ChildItems>
+		</UsualGroup>
+		
+		<!-- Основная область дашборда -->
+		<Pages name="СтраницыДашборда" id="40">
+			<PagesRepresentation>TabsOnTop</PagesRepresentation>
+			<ExtendedTooltip name="СтраницыДашбордаРасширеннаяПодсказка" id="41"/>
+			<ChildItems>
+				<!-- Страница Продажи и Доходы -->
+				<Page name="СтраницаПродажи" id="42">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Продажи и Доходы</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ продаж и доходов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.РегламентированныеОтчеты</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="СтраницаПродажиРасширеннаяПодсказка" id="43"/>
+					<ChildItems>
+						<!-- Индикаторы KPI -->
+						<UsualGroup name="ГруппаИндикаторыПродажи" id="44">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Ключевые показатели</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Horizontal</Group>
+							<Representation>StrongSeparation</Representation>
+							<ShowTitle>true</ShowTitle>
+							<ExtendedTooltip name="ГруппаИндикаторыПродажиРасширеннаяПодсказка" id="45"/>
+							<ChildItems>
+								<!-- Индикатор Выручка -->
+								<UsualGroup name="ГруппаВыручка" id="46">
+									<Group>Vertical</Group>
+									<Representation>NormalSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаВыручкаРасширеннаяПодсказка" id="47"/>
+									<ChildItems>
+										<LabelField name="ЗаголовокВыручка" id="48">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Выручка</v8:content>
+												</v8:item>
+											</Title>
+											<TitleHeight>1</TitleHeight>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" bold="true"/>
+											<Border>
+												<v8:item>
+													<v8:Left>false</v8:Left>
+													<v8:Top>false</v8:Top>
+													<v8:Right>false</v8:Right>
+													<v8:Bottom>true</v8:Bottom>
+												</v8:item>
+											</Border>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<ExtendedTooltip name="ЗаголовокВыручкаРасширеннаяПодсказка" id="49"/>
+										</LabelField>
+										<LabelDecoration name="ИндикаторВыручка" id="50">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>0.00</v8:content>
+												</v8:item>
+											</Title>
+											<TextColor>style:SpecialTextColor</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="14" bold="true"/>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<ExtendedTooltip name="ИндикаторВыручкаРасширеннаяПодсказка" id="51"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								
+								<!-- Индикатор Средний чек -->
+								<UsualGroup name="ГруппаСреднийЧек" id="52">
+									<Group>Vertical</Group>
+									<Representation>NormalSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСреднийЧекРасширеннаяПодсказка" id="53"/>
+									<ChildItems>
+										<LabelField name="ЗаголовокСреднийЧек" id="54">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Средний чек</v8:content>
+												</v8:item>
+											</Title>
+											<TitleHeight>1</TitleHeight>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" bold="true"/>
+											<Border>
+												<v8:item>
+													<v8:Left>false</v8:Left>
+													<v8:Top>false</v8:Top>
+													<v8:Right>false</v8:Right>
+													<v8:Bottom>true</v8:Bottom>
+												</v8:item>
+											</Border>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<ExtendedTooltip name="ЗаголовокСреднийЧекРасширеннаяПодсказка" id="55"/>
+										</LabelField>
+										<LabelDecoration name="ИндикаторСреднийЧек" id="56">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>0.00</v8:content>
+												</v8:item>
+											</Title>
+											<TextColor>style:SpecialTextColor</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="14" bold="true"/>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<ExtendedTooltip name="ИндикаторСреднийЧекРасширеннаяПодсказка" id="57"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+								
+								<!-- Индикатор Количество продаж -->
+								<UsualGroup name="ГруппаКоличествоПродаж" id="58">
+									<Group>Vertical</Group>
+									<Representation>NormalSeparation</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаКоличествоПродажРасширеннаяПодсказка" id="59"/>
+									<ChildItems>
+										<LabelField name="ЗаголовокКоличествоПродаж" id="60">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>Количество продаж</v8:content>
+												</v8:item>
+											</Title>
+											<TitleHeight>1</TitleHeight>
+											<TitleFont ref="sys:DefaultGUIFont" height="10" bold="true"/>
+											<Border>
+												<v8:item>
+													<v8:Left>false</v8:Left>
+													<v8:Top>false</v8:Top>
+													<v8:Right>false</v8:Right>
+													<v8:Bottom>true</v8:Bottom>
+												</v8:item>
+											</Border>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<ExtendedTooltip name="ЗаголовокКоличествоПродажРасширеннаяПодсказка" id="61"/>
+										</LabelField>
+										<LabelDecoration name="ИндикаторКоличествоПродаж" id="62">
+											<Title>
+												<v8:item>
+													<v8:lang>ru</v8:lang>
+													<v8:content>0</v8:content>
+												</v8:item>
+											</Title>
+											<TextColor>style:SpecialTextColor</TextColor>
+											<Font ref="sys:DefaultGUIFont" height="14" bold="true"/>
+											<HorizontalAlign>Center</HorizontalAlign>
+											<ExtendedTooltip name="ИндикаторКоличествоПродажРасширеннаяПодсказка" id="63"/>
+										</LabelDecoration>
+									</ChildItems>
+								</UsualGroup>
+							</ChildItems>
+						</UsualGroup>
+						
+						<!-- Графики -->
+						<SpreadsheetDocumentField name="ГрафикПродажи" id="64">
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Динамика продаж</v8:content>
+								</v8:item>
+							</Title>
+							<TitleLocation>Top</TitleLocation>
+							<DataPath>РезультатПродажи</DataPath>
+							<Width>60</Width>
+							<Height>20</Height>
+							<Edit>false</Edit>
+							<Protection>true</Protection>
+							<ShowGroups>false</ShowGroups>
+							<ShowGrid>false</ShowGrid>
+							<ShowHeaders>false</ShowHeaders>
+							<ContextMenu name="ГрафикПродажиКонтекстноеМеню" id="65"/>
+							<ExtendedTooltip name="ГрафикПродажиРасширеннаяПодсказка" id="66"/>
+						</SpreadsheetDocumentField>
+					</ChildItems>
+				</Page>
+				
+				<!-- Страница Прибыльность -->
+				<Page name="СтраницаПрибыльность" id="67">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Прибыльность</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ прибыльности</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.ЗаполнитьПоОстаткам</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="СтраницаПрибыльностьРасширеннаяПодсказка" id="68"/>
+					<ChildItems>
+						<SpreadsheetDocumentField name="ГрафикПрибыльность" id="69">
+							<DataPath>РезультатПрибыльность</DataPath>
+							<Width>60</Width>
+							<Height>25</Height>
+							<Edit>false</Edit>
+							<Protection>true</Protection>
+							<ShowGroups>false</ShowGroups>
+							<ShowGrid>false</ShowGrid>
+							<ShowHeaders>false</ShowHeaders>
+							<ContextMenu name="ГрафикПрибыльностьКонтекстноеМеню" id="70"/>
+							<ExtendedTooltip name="ГрафикПрибыльностьРасширеннаяПодсказка" id="71"/>
+						</SpreadsheetDocumentField>
+					</ChildItems>
+				</Page>
+				
+				<!-- Страница Взаиморасчеты -->
+				<Page name="СтраницаВзаиморасчеты" id="72">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Взаиморасчеты</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ взаиморасчетов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.ОтчетВзаиморасчеты</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="СтраницаВзаиморасчетыРасширеннаяПодсказка" id="73"/>
+					<ChildItems>
+						<SpreadsheetDocumentField name="ГрафикВзаиморасчеты" id="74">
+							<DataPath>РезультатВзаиморасчеты</DataPath>
+							<Width>60</Width>
+							<Height>25</Height>
+							<Edit>false</Edit>
+							<Protection>true</Protection>
+							<ShowGroups>false</ShowGroups>
+							<ShowGrid>false</ShowGrid>
+							<ShowHeaders>false</ShowHeaders>
+							<ContextMenu name="ГрафикВзаиморасчетыКонтекстноеМеню" id="75"/>
+							<ExtendedTooltip name="ГрафикВзаиморасчетыРасширеннаяПодсказка" id="76"/>
+						</SpreadsheetDocumentField>
+					</ChildItems>
+				</Page>
+				
+				<!-- Страница Управление запасами -->
+				<Page name="СтраницаЗапасы" id="77">
+					<Title>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Управление запасами</v8:content>
+						</v8:item>
+					</Title>
+					<ToolTip>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Анализ запасов</v8:content>
+						</v8:item>
+					</ToolTip>
+					<Picture>
+						<xr:Ref>CommonPicture.СкладскиеЯчейки</xr:Ref>
+						<xr:LoadTransparent>true</xr:LoadTransparent>
+					</Picture>
+					<ExtendedTooltip name="СтраницаЗапасыРасширеннаяПодсказка" id="78"/>
+					<ChildItems>
+						<SpreadsheetDocumentField name="ГрафикЗапасы" id="79">
+							<DataPath>РезультатЗапасы</DataPath>
+							<Width>60</Width>
+							<Height>25</Height>
+							<Edit>false</Edit>
+							<Protection>true</Protection>
+							<ShowGroups>false</ShowGroups>
+							<ShowGrid>false</ShowGrid>
+							<ShowHeaders>false</ShowHeaders>
+							<ContextMenu name="ГрафикЗапасыКонтекстноеМеню" id="80"/>
+							<ExtendedTooltip name="ГрафикЗапасыРасширеннаяПодсказка" id="81"/>
+						</SpreadsheetDocumentField>
+					</ChildItems>
+				</Page>
+			</ChildItems>
+		</Pages>
+	</ChildItems>
+	<Commands>
+		<Command name="Обновить" id="1">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обновить данные дашборда</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Action>Обновить</Action>
+			<Representation>TextAndPicture</Representation>
+			<Picture>
+				<xr:Ref>StdPicture.Refresh</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+		</Command>
+	</Commands>
+</Form>
